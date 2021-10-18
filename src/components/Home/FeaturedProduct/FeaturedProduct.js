@@ -1,7 +1,9 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
 import useProduct from '../../../Hooks/useProducts';
+
+import Product from './Product';
 
 import './FeaturedProduct.css';
 const FeaturedProduct = () => {
@@ -13,7 +15,13 @@ const FeaturedProduct = () => {
       <div>
         <h1>A Few Of Our Favorites.</h1>
       </div>
-      <div></div>
+      <div>
+        <Row className='g-3'>
+          {products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </Row>
+      </div>
     </Container>
   );
 };

@@ -1,0 +1,11 @@
+.product {
+  padding: 15px;
+  border-radius: 15px;
+}
+.product-info h5 {
+  color: #008181;
+}
+
+.product-button {
+  background-color: #008181 !important;
+}
