@@ -1,0 +1,28 @@
+.carousel-first-item {
+  background-color: #e8f7fd;
+}
+.carousel-2nd-item {
+  background-color: #fdf8ec;
+}
+.carousel-text-area {
+  padding-top: 173px;
+}
+.heroArea {
+  padding: 5rem 0;
+}
+
+.sub-heading {
+  font-weight: bolder;
+  color: #167679;
+}
+.main-heading {
+  color: #023c4d;
+  font-size: 4rem;
+  font-family: 'Andada Pro', serif;
+  font-weight: 900;
+}
+.paragraph {
+  font-size: 1.3rem;
+  color: #284c5e;
+  font-weight: 400;
+}

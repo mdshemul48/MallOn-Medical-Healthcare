@@ -1,7 +1,12 @@
 import React from 'react';
+import HeroAreaCarousel from './HeroAreaCarousel/HeroAreaCarousel';
 
 const Home = () => {
-  return <div>This is Home</div>;
+  return (
+    <main>
+      <HeroAreaCarousel />
+    </main>
+  );
 };
 
 export default Home;
