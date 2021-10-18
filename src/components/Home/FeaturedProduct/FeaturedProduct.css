@@ -1,0 +1,13 @@
+.featured-products p:first-child {
+  color: #008181;
+}
+.all-services-button {
+  color: #008181 !important;
+  border-bottom: 2px solid #008181 !important;
+  border-radius: 0 !important;
+}
+.featured-products h1 {
+  color: #033b4c;
+  font-family: 'Andada Pro', serif;
+  font-weight: 900;
+}
