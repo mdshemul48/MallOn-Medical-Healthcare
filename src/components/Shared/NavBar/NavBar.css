@@ -6,3 +6,6 @@
   color: #fffff9 !important;
   font-weight: 600;
 }
+.navbar .active {
+  color: #008181 !important;
+}

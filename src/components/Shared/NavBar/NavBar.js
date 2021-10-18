@@ -15,16 +15,16 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls='navbarScroll' />
         <Navbar.Collapse id='navbarScroll'>
           <Nav className='ms-auto'>
-            <Nav.Link as={NavLink} to='/'>
+            <Nav.Link as={NavLink} activeClassName='active' to='/' exact>
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} to='/services'>
+            <Nav.Link as={NavLink} activeClassName='active' to='/services'>
               Services
             </Nav.Link>
-            <Nav.Link as={NavLink} to='/contact-us'>
+            <Nav.Link as={NavLink} activeClassName='active' to='/contact-us'>
               Contact us
             </Nav.Link>
-            <Nav.Link as={NavLink} to='/about'>
+            <Nav.Link as={NavLink} activeClassName='active' to='/about'>
               About Us
             </Nav.Link>
             <Navbar.Text className='ms-2'>
