@@ -15,7 +15,7 @@ const About = () => {
           <Col lg={6}>
             <h1 className='my-5'>About Us</h1>
             <p>
-              The GOJO Purpose of Saving Lives and Making Life Better Through
+              The MallMed Purpose of Saving Lives and Making Life Better Through
               Well-being Solutions drives every decision our Family Enterprise
               makes, from the products we create, to the ways we work. As the
               inventors of PURELL® Hand Sanitizer, GOJO is a privately-held
