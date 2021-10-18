@@ -1,11 +1,15 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+
+import logo from '../../../assets/logo.png';
 
 const NavBar = () => {
   return (
     <Container>
-      <Navbar bg='light' expand='lg'>
-        <Navbar.Brand href='#'>Navbar scroll</Navbar.Brand>
+      <Navbar expand='lg'>
+        <Navbar.Brand href='/'>
+          <img src={logo} alt='website logo' />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls='navbarScroll' />
         <Navbar.Collapse id='navbarScroll'>
           <Nav>
