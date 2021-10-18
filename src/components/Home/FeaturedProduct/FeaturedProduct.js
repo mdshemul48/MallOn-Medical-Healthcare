@@ -11,7 +11,7 @@ const FeaturedProduct = () => {
     <Container>
       <p>FEATURED PRODUCTS</p>
       <div>
-        <h1>A Few Of Our Favourites.</h1>
+        <h1>A Few Of Our Favorites.</h1>
       </div>
       <div></div>
     </Container>
