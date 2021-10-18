@@ -1,10 +1,13 @@
 import React from 'react';
-import HeroAreaCarousel from './HeroAreaCarousel/HeroAreaCarousel';
 
+// components
+import HeroAreaCarousel from './HeroAreaCarousel/HeroAreaCarousel';
+import ApprovedArea from './ApprovedArea/ApprovedArea';
 const Home = () => {
   return (
     <main>
       <HeroAreaCarousel />
+      <ApprovedArea />
     </main>
   );
 };
