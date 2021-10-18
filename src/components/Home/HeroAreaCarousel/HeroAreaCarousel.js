@@ -22,6 +22,12 @@ const HeroAreaCarousel = () => {
                   Who knows what your hand might have touch, keep your <br />
                   hand & home clean with our sanitizers{' '}
                 </p>
+                <button
+                  type='button'
+                  class='btn carousel-button text-light py-2 mx-2 fw-bold'
+                >
+                  Explore more
+                </button>
               </div>
             </Col>
             <Col lg={6}>
@@ -43,6 +49,16 @@ const HeroAreaCarousel = () => {
                 <p className='paragraph'>
                   Eliminates 99.99% of meny harmful germs & bacteria.
                 </p>
+                <button
+                  type='button'
+                  class='btn carousel-button text-light py-2 mx-2 fw-bold'
+                >
+                  Shop Products
+                </button>
+
+                <span class='btn learn-more-button'>
+                  Learn about sanitizers
+                </span>
               </div>
             </Col>
             <Col lg={6}>

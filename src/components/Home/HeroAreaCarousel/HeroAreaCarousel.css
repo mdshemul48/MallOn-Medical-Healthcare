@@ -26,3 +26,11 @@
   color: #284c5e;
   font-weight: 400;
 }
+
+.carousel-button {
+  background: #018181 !important;
+}
+
+.learn-more-button {
+  color: #018181 !important;
+}
