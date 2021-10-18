@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { NavLink, Link } from 'react-router-dom';
 
 import logo from '../../../assets/logo.png';
@@ -27,6 +27,13 @@ const NavBar = () => {
             <Nav.Link as={NavLink} to='/about'>
               About Us
             </Nav.Link>
+            <Navbar.Text className='ms-2'>
+              Signed in as: <span className='text-light'>Mark Otto</span>
+            </Navbar.Text>
+
+            <Button variant='outline-light' className='ms-2' size='sm'>
+              Logout
+            </Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
