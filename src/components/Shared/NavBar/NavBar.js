@@ -3,24 +3,25 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 
 import logo from '../../../assets/logo.png';
 
+import './NavBar.css';
 const NavBar = () => {
   return (
-    <Container>
-      <Navbar expand='lg'>
+    <Navbar expand='lg' variant='dark' className='navbar'>
+      <Container>
         <Navbar.Brand href='/'>
           <img src={logo} alt='website logo' />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='navbarScroll' />
         <Navbar.Collapse id='navbarScroll'>
-          <Nav>
-            <Nav.Link href='#action1'>Home</Nav.Link>
-            <Nav.Link href='#action2'>Services</Nav.Link>
-            <Nav.Link href='#action2'>Contact us</Nav.Link>
-            <Nav.Link href='#action2'>About Us</Nav.Link>
+          <Nav className='ms-auto'>
+            <Nav.Link href='#'>Home</Nav.Link>
+            <Nav.Link href='#'>Services</Nav.Link>
+            <Nav.Link href='#'>Contact us</Nav.Link>
+            <Nav.Link href='#'>About Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
-    </Container>
+      </Container>
+    </Navbar>
   );
 };
 

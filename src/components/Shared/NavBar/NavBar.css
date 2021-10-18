@@ -1,0 +1,8 @@
+.navbar {
+  background-color: #033b4c;
+}
+
+.navbar .nav-link {
+  color: #fffff9 !important;
+  font-weight: 600;
+}
