@@ -24,7 +24,7 @@ const HeroAreaCarousel = () => {
                 </p>
                 <button
                   type='button'
-                  class='btn carousel-button text-light py-2 mx-2 fw-bold'
+                  className='btn carousel-button text-light py-2 mx-2 fw-bold'
                 >
                   Explore more
                 </button>
@@ -51,12 +51,12 @@ const HeroAreaCarousel = () => {
                 </p>
                 <button
                   type='button'
-                  class='btn carousel-button text-light py-2 mx-2 fw-bold'
+                  className='btn carousel-button text-light py-2 mx-2 fw-bold'
                 >
                   Shop Products
                 </button>
 
-                <span class='btn learn-more-button'>
+                <span className='btn learn-more-button'>
                   Learn about sanitizers
                 </span>
               </div>
