@@ -8,7 +8,7 @@ import './NavBar.css';
 const NavBar = () => {
   return (
     <Navbar expand='lg' variant='dark' className='navbar'>
-      <Container>
+      <Container className='py-2'>
         <Navbar.Brand as={Link} to='/'>
           <img src={logo} alt='website logo' />
         </Navbar.Brand>
