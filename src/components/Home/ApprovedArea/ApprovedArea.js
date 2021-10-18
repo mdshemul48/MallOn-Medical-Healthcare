@@ -27,10 +27,9 @@ const ApprovedArea = () => {
       <Container className='mb-5'>
         <Row className='approved-logos'>
           {allTheImage.map((logo, index) => (
-            <Col lg={2} md={4} sm={6}>
+            <Col lg={2} md={4} sm={6} key={index}>
               <img
                 className='approved-Logo'
-                key={index}
                 src={logo}
                 alt={`logo ${index + 1}`}
               />
