@@ -104,6 +104,18 @@ const Footer = () => {
           <Col lg={6}>
             <h6 className='fw-bold text-light'>SIGN UP FOR NEWSLETTER</h6>
             <p>Get 30% OFF coupon today subscibers.</p>
+            <Row>
+              <Col>
+                <input
+                  type='text'
+                  className='form-control'
+                  placeholder='Email'
+                />
+              </Col>
+              <Col>
+                <button className='btn btn-light'>Subscribe</button>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Container>
