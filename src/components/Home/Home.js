@@ -5,6 +5,7 @@ import HeroAreaCarousel from './HeroAreaCarousel/HeroAreaCarousel';
 import ApprovedArea from './ApprovedArea/ApprovedArea';
 import { Container } from 'react-bootstrap';
 import OurProduct from './OurProduct/OurProduct';
+import FeaturedProduct from './FeaturedProduct/FeaturedProduct';
 const Home = () => {
   return (
     <main>
@@ -14,6 +15,7 @@ const Home = () => {
         <hr />
       </Container>
       <OurProduct />
+      <FeaturedProduct />
     </main>
   );
 };
