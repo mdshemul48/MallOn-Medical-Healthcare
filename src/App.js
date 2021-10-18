@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+// content provider
+import { ProductContextProvider } from './Contexts/ProductContext';
 // all the main components
 import Home from './components/Home/Home';
 import Services from './components/Services/Services';
@@ -13,16 +15,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <Route path='/' component={Home} exact />
-        <Route path='/services/:serviceId' component={SingleService} />
-        <Route path='/services' component={Services} />
-        <Route path='/contact-us' component={ContactUs} />
-        <Route path='/about' component={About} />
-      </Switch>
-    </Router>
+    <ProductContextProvider>
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route path='/' component={Home} exact />
+          <Route path='/services/:serviceId' component={SingleService} />
+          <Route path='/services' component={Services} />
+          <Route path='/contact-us' component={ContactUs} />
+          <Route path='/about' component={About} />
+        </Switch>
+      </Router>
+    </ProductContextProvider>
   );
 }
 
