@@ -10,6 +10,7 @@ import About from './components/About/About';
 import ContactUs from './components/ContactUs/ContactUs';
 
 import NavBar from './components/Shared/NavBar/NavBar';
+import Footer from './components/Shared/Footer/Footer';
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -25,6 +26,7 @@ function App() {
           <Route path='/contact-us' component={ContactUs} />
           <Route path='/about' component={About} />
         </Switch>
+        <Footer />
       </Router>
     </ProductContextProvider>
   );

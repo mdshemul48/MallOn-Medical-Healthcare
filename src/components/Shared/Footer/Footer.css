@@ -1,0 +1,31 @@
+footer {
+  background-color: #283142;
+}
+footer ul {
+  padding: 0;
+}
+footer ul li {
+  list-style: none;
+  margin-left: 0;
+}
+footer p {
+  color: #aaa;
+}
+.footer-link {
+  box-sizing: border-box;
+  outline: none !important;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0 none;
+  padding: 0;
+  line-height: 34px;
+  position: relative;
+  display: inline-block;
+  color: #aaa;
+  font-size: 13px;
+}
+
+.footer-link:hover {
+  color: #008181;
+}
