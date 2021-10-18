@@ -6,6 +6,8 @@ import ApprovedArea from './ApprovedArea/ApprovedArea';
 import { Container } from 'react-bootstrap';
 import OurProduct from './OurProduct/OurProduct';
 import FeaturedProduct from './FeaturedProduct/FeaturedProduct';
+import AdsArea from './AdsArea/AdsArea';
+
 const Home = () => {
   return (
     <main>
@@ -16,6 +18,7 @@ const Home = () => {
       </Container>
       <OurProduct />
       <FeaturedProduct />
+      <AdsArea />
     </main>
   );
 };
