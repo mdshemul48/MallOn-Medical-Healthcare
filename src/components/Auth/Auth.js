@@ -56,13 +56,13 @@ const Auth = () => {
                     Sign Up
                   </Button>
                 )}
-              </Row>    
+              </Row>
             </div>
           </form>
 
           <h3 className='text-center'>Or Login With</h3>
 
-          <Row className='my-3 mx-1 text-center my-5'>
+          <Row className='my-3 mx-1 text-center my-5 px-3'>
             <Button variant='outline-dark' className='py-3 fw-bold'>
               <FcGoogle className='me-2' />
               Login with Google
