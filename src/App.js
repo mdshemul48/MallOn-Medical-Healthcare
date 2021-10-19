@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // content provider
 import { ProductContextProvider } from './Contexts/ProductContext';
 import { AuthProvider } from './Contexts/AuthContext';
+
 // all the main components
 import Home from './components/Home/Home';
 import Products from './components/Products/Products';
@@ -10,6 +11,7 @@ import SingleService from './components/Products/SingleProduct';
 import About from './components/About/About';
 import ContactUs from './components/ContactUs/ContactUs';
 import NotFound from './components/NotFound/NotFound';
+
 // login page
 import Auth from './components/Auth/Auth';
 
