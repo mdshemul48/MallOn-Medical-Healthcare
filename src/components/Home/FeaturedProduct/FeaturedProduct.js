@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 import useProduct from '../../../Hooks/useProducts';
 
-import Product from './Product';
+import Product from '../../Products/Product';
 
 import './FeaturedProduct.css';
 const FeaturedProduct = () => {
