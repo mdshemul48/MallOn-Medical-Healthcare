@@ -13,6 +13,7 @@ import NavBar from './components/Shared/NavBar/NavBar';
 import Footer from './components/Shared/Footer/Footer';
 // styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import './App.css';
 function App() {
   return (
