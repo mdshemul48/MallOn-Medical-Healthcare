@@ -5,10 +5,11 @@ import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
 
 import useAuth from '../../Hooks/useAuth';
-import Logo from '../../assets/logo1.png';
+import Logo from '../../assets/logo1.png'; // this is the dark logo for the website
 
 import './Auth.css';
 const Auth = () => {
+  // this will be used to redirect the user to the page they were on before logging in
   const history = useHistory();
   const location = useLocation();
   const {
@@ -19,9 +20,11 @@ const Auth = () => {
     error,
   } = useAuth();
 
+  // this will toggle the login and signup forms on the page
   const [authToggle, setAuthToggle] = useState(true);
   const { register, handleSubmit } = useForm();
 
+  // this will create or login an user to the website
   const formSubmitHandler = (data) => {
     if (authToggle) {
       loginInWithEmailAndPassword(data.email, data.password);
@@ -34,10 +37,12 @@ const Auth = () => {
     }
   };
 
+  // this will log the user in with google account
   const googleAuthHandler = () => {
     signInWithGoogle();
   };
 
+  // if user is logged in, redirect to the home page or the page they were on before logging in.
   useEffect(() => {
     if (user.displayName) {
       const redirectPath = location?.state?.from?.pathname || '/';

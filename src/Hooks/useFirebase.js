@@ -20,6 +20,7 @@ const useFirebase = () => {
   const [error, setError] = useState(null);
   const auth = getAuth();
 
+  // this function will be called when the user is signed in
   const loginInWithEmailAndPassword = (email, password) => {
     setIsLoading(true);
     setError(null);
@@ -37,6 +38,8 @@ const useFirebase = () => {
       });
   };
 
+  // this function will be called when the user will create an account
+  // and this will set a new user name
   const changeName = (name) => {
     updateProfile(auth.currentUser, { displayName: name })
       .then(() => {})
@@ -48,6 +51,7 @@ const useFirebase = () => {
       });
   };
 
+  // this function will be called when the user will create an account
   const createAccountWithEmailAndPassword = (name, email, password) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
@@ -63,6 +67,7 @@ const useFirebase = () => {
       });
   };
 
+  // this function will be called when the user will login with google
   const signInWithGoogle = () => {
     setIsLoading(true);
     const provider = new GoogleAuthProvider();
@@ -80,6 +85,7 @@ const useFirebase = () => {
       });
   };
 
+  // this will look for the user state and this will change the user state
   useEffect(() => {
     setIsLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -93,6 +99,7 @@ const useFirebase = () => {
     return () => unsubscribe;
   }, [auth]);
 
+  // this function will be called when the user will logout
   const logOut = () => {
     signOut(auth)
       .then(() => {
