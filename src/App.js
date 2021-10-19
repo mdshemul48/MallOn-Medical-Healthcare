@@ -25,7 +25,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route path='/' component={Home} exact />
-          <Route path='/products/:serviceId' component={SingleService} />
+          <Route path='/products/:productId' component={SingleService} />
           <Route path='/products' component={Services} />
           <Route path='/contact-us' component={ContactUs} />
           <Route path='/about' component={About} />

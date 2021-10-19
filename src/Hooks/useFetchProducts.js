@@ -9,7 +9,7 @@ const useProducts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get('./fakeData.json');
+        const result = await axios.get('/fakeData.json');
         setProducts(result.data);
       } catch (error) {
         setError(error.message);
@@ -19,9 +19,7 @@ const useProducts = () => {
   }, []);
 
   // this will return a single product from the products array
-  const findProduct = (id) => {
-    return products.find((product) => product.id === id);
-  };
+  const findProduct = (id) => products.find((product) => product.id === id);
 
   return {
     products,

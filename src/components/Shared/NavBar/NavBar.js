@@ -18,7 +18,12 @@ const NavBar = () => {
             <Nav.Link as={NavLink} activeClassName='active' to='/' exact>
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} activeClassName='active' to='/products'>
+            <Nav.Link
+              as={NavLink}
+              activeClassName='active'
+              to='/products'
+              exact
+            >
               Products
             </Nav.Link>
             <Nav.Link as={NavLink} activeClassName='active' to='/contact-us'>
