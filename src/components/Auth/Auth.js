@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
@@ -10,6 +10,7 @@ import Logo from '../../assets/logo1.png';
 import './Auth.css';
 const Auth = () => {
   const history = useHistory();
+  const location = useLocation();
   const {
     user,
     createAccountWithEmailAndPassword,
@@ -17,7 +18,7 @@ const Auth = () => {
     loginInWithEmailAndPassword,
   } = useAuth();
 
-  const [authToggle, setAuthToggle] = useState(false);
+  const [authToggle, setAuthToggle] = useState(true);
   const { register, handleSubmit } = useForm();
 
   const formSubmitHandler = (data) => {
@@ -38,9 +39,10 @@ const Auth = () => {
 
   useEffect(() => {
     if (user.displayName) {
-      history.push('/');
+      const redirectPath = location?.state?.from?.pathname || '/';
+      history.push(redirectPath);
     }
-  }, [user, history]);
+  }, [user, history, location]);
 
   return (
     <Container className='my-5'>

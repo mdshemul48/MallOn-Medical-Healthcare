@@ -20,8 +20,6 @@ const useFirebase = () => {
   const [error, setError] = useState(null);
   const auth = getAuth();
 
-  console.log(error);
-
   const loginInWithEmailAndPassword = (email, password) => {
     setIsLoading(true);
     setError(null);
@@ -33,6 +31,8 @@ const useFirebase = () => {
       })
       .catch((error) => {
         setError(error);
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   };
@@ -42,6 +42,9 @@ const useFirebase = () => {
       .then(() => {})
       .catch((error) => {
         setError(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -50,11 +53,12 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setUser({ ...userCredential.user, displayName: name });
-        setIsLoading(false);
         changeName(name);
       })
       .catch((error) => {
         setError(error);
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   };
@@ -70,6 +74,9 @@ const useFirebase = () => {
       .catch((error) => {
         setError(error);
         setIsLoading(false);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   };
 
@@ -83,7 +90,7 @@ const useFirebase = () => {
       }
       setIsLoading(false);
     });
-    return unsubscribe;
+    return () => unsubscribe;
   }, [auth]);
 
   const logOut = () => {

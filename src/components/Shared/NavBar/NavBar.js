@@ -8,7 +8,6 @@ import useAuth from '../../../Hooks/useAuth';
 import './NavBar.css';
 const NavBar = () => {
   const { user, logOut } = useAuth();
-  console.log(user);
   const history = useHistory();
   const handleLogin = () => {
     history.push('/auth');
