@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
+
+import ErrorShower from './ErrorShower';
 
 import useAuth from '../../Hooks/useAuth';
 import Logo from '../../assets/logo1.png'; // this is the dark logo for the website
@@ -17,12 +19,15 @@ const Auth = () => {
     createAccountWithEmailAndPassword,
     signInWithGoogle,
     loginInWithEmailAndPassword,
-    error,
   } = useAuth();
 
   // this will toggle the login and signup forms on the page
   const [authToggle, setAuthToggle] = useState(true);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   // this will create or login an user to the website
   const formSubmitHandler = (data) => {
@@ -52,11 +57,8 @@ const Auth = () => {
 
   return (
     <Container className='my-5'>
-      {error && (
-        <div>
-          <Alert variant={'danger'}>{error?.message}</Alert>
-        </div>
-      )}
+      <ErrorShower errors={errors} />
+      {/* signup and login area */}
       <Row className='align-items-center justify-content-center'>
         <Col lg={6} className='shadow rounded'>
           <div className='text-center my-3'>
@@ -72,7 +74,13 @@ const Auth = () => {
                   type='text'
                   className='form-control py-2'
                   placeholder='Enter Name'
-                  {...register('userName')}
+                  {...register('userName', {
+                    required: {
+                      value: true,
+                      message: 'Name is required',
+                    },
+                    minLength: 3,
+                  })}
                 />
               </div>
             )}
@@ -83,7 +91,16 @@ const Auth = () => {
                 className='form-control py-2'
                 id='email'
                 placeholder='Enter email'
-                {...register('email')}
+                {...register('email', {
+                  required: {
+                    value: true,
+                    message: 'Email is required',
+                  },
+                  pattern: {
+                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                    message: 'Invalid email address',
+                  },
+                })}
               />
             </div>
             <div className='form-group my-2'>
@@ -93,7 +110,13 @@ const Auth = () => {
                 className='form-control py-2'
                 id='password'
                 placeholder='Password'
-                {...register('password')}
+                {...register('password', {
+                  required: 'Password must be at least 6 characters',
+                  minLength: {
+                    value: 6,
+                    message: 'Password must be at least 6 characters',
+                  },
+                })}
               />
             </div>
             <div className='form-group my-2'>
