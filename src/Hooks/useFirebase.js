@@ -6,6 +6,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
+  updateProfile,
+  signOut,
 } from 'firebase/auth';
 
 import firebaseInitialization from '../config/firebase.init';
@@ -16,7 +18,6 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const auth = getAuth();
 
   const loginInWithEmailAndPassword = (email, password) => {
@@ -34,12 +35,22 @@ const useFirebase = () => {
       });
   };
 
-  const createAccountWithEmailAndPassword = (email, password) => {
+  const changeName = (name) => {
+    updateProfile(auth.currentUser, { displayName: name })
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
+  };
+
+  const createAccountWithEmailAndPassword = (name, email, password) => {
     setIsLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setUser(userCredential.user);
+        setUser({ ...userCredential.user, displayName: name });
         setIsLoading(false);
+        changeName(name);
       })
       .catch((error) => {
         setError(error);
@@ -74,6 +85,16 @@ const useFirebase = () => {
     return unsubscribe;
   }, [auth]);
 
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUser({});
+      })
+      .catch((error) => {
+        setError(error);
+      });
+  };
+
   return {
     user,
     isLoading,
@@ -81,6 +102,7 @@ const useFirebase = () => {
     createAccountWithEmailAndPassword,
     signInWithGoogle,
     loginInWithEmailAndPassword,
+    logOut,
   };
 };
 

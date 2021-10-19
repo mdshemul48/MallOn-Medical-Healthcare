@@ -7,11 +7,17 @@ import useAuth from '../../../Hooks/useAuth';
 
 import './NavBar.css';
 const NavBar = () => {
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
+  console.log(user);
   const history = useHistory();
   const handleLogin = () => {
     history.push('/auth');
   };
+
+  const handleLogout = () => {
+    logOut();
+  };
+
   return (
     <Navbar expand='lg' variant='dark' className='navbar'>
       <Container className='py-2'>
@@ -46,7 +52,12 @@ const NavBar = () => {
                   Signed in as:{' '}
                   <span className='text-light'>{user.displayName}</span>
                 </Navbar.Text>
-                <Button variant='outline-light' className='ms-2' size='sm'>
+                <Button
+                  variant='outline-light'
+                  className='ms-2'
+                  size='sm'
+                  onClick={handleLogout}
+                >
                   Logout
                 </Button>
               </>

@@ -1,12 +1,28 @@
-import React from 'react';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
 
+import useAuth from '../../Hooks/useAuth';
 import Logo from '../../assets/logo1.png';
 
 import './Auth.css';
 const Auth = () => {
-  const [authToggle, setAuthToggle] = React.useState(false);
+  const { createAccountWithEmailAndPassword } = useAuth();
+  const [authToggle, setAuthToggle] = useState(false);
+  const { register, handleSubmit, errors } = useForm();
+
+  const formSubmitHandler = (data) => {
+    if (!authToggle) {
+    } else {
+      createAccountWithEmailAndPassword(
+        data.userName,
+        data.email,
+        data.password
+      );
+    }
+  };
+
   return (
     <Container className='my-5'>
       <Row className='align-items-center justify-content-center'>
@@ -16,7 +32,7 @@ const Auth = () => {
             <p className='my-2 ms-4'>Login into your pages account</p>
           </div>
 
-          <form className='p-3'>
+          <form className='p-3' onSubmit={handleSubmit(formSubmitHandler)}>
             {authToggle && (
               <div className='form-group'>
                 <label htmlFor='email'>Name</label>
@@ -24,6 +40,7 @@ const Auth = () => {
                   type='text'
                   className='form-control py-2'
                   placeholder='Enter Name'
+                  {...register('userName')}
                 />
               </div>
             )}
@@ -34,6 +51,7 @@ const Auth = () => {
                 className='form-control py-2'
                 id='email'
                 placeholder='Enter email'
+                {...register('email')}
               />
             </div>
             <div className='form-group'>
@@ -43,19 +61,17 @@ const Auth = () => {
                 className='form-control py-2'
                 id='password'
                 placeholder='Password'
+                {...register('password')}
               />
             </div>
             <div className='form-group'>
               <Row className='my-3 mx-1'>
-                {!authToggle ? (
-                  <Button className='py-3 fw-bold carousel-button btn-success'>
-                    Login
-                  </Button>
-                ) : (
-                  <Button className='py-3 fw-bold carousel-button btn-success'>
-                    Sign Up
-                  </Button>
-                )}
+                <Button
+                  className='py-3 fw-bold carousel-button btn-success'
+                  type='submit'
+                >
+                  {!authToggle ? 'Login' : 'Signup'}
+                </Button>
               </Row>
             </div>
           </form>
