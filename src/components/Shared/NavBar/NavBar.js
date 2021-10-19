@@ -1,11 +1,15 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 
 import logo from '../../../assets/logo.png';
 
 import './NavBar.css';
 const NavBar = () => {
+  const history = useHistory();
+  const handleLogin = () => {
+    history.push('/auth');
+  };
   return (
     <Navbar expand='lg' variant='dark' className='navbar'>
       <Container className='py-2'>
@@ -38,6 +42,14 @@ const NavBar = () => {
 
             <Button variant='outline-light' className='ms-2' size='sm'>
               Logout
+            </Button>
+            <Button
+              variant='outline-light'
+              className='ms-2'
+              size='sm'
+              onClick={handleLogin}
+            >
+              Login
             </Button>
           </Nav>
         </Navbar.Collapse>
