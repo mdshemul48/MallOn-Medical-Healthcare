@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // content provider
 import { ProductContextProvider } from './Contexts/ProductContext';
+import { AuthProvider } from './Contexts/AuthContext';
 // all the main components
 import Home from './components/Home/Home';
 import Services from './components/Products/Products';
@@ -20,21 +21,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 function App() {
   return (
-    <ProductContextProvider>
-      <Router>
-        <NavBar />
-        <Switch>
-          <Route path='/' component={Home} exact />
-          <Route path='/products/:productId' component={SingleService} />
-          <Route path='/products' component={Services} />
-          <Route path='/contact-us' component={ContactUs} />
-          <Route path='/about' component={About} />
-          <Route path='/auth' component={Auth} />
-          <Route path='*' component={NotFound} />
-        </Switch>
-        <Footer />
-      </Router>
-    </ProductContextProvider>
+    <AuthProvider>
+      <ProductContextProvider>
+        <Router>
+          <NavBar />
+          <Switch>
+            <Route path='/' component={Home} exact />
+            <Route path='/products/:productId' component={SingleService} />
+            <Route path='/products' component={Services} />
+            <Route path='/contact-us' component={ContactUs} />
+            <Route path='/about' component={About} />
+            <Route path='/auth' component={Auth} />
+            <Route path='*' component={NotFound} />
+          </Switch>
+          <Footer />
+        </Router>
+      </ProductContextProvider>
+    </AuthProvider>
   );
 }
 

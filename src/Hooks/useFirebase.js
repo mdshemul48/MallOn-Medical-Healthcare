@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 
 import firebaseInitialization from '../config/firebase.init';
@@ -17,6 +18,21 @@ const useFirebase = () => {
   const [error, setError] = useState(null);
 
   const auth = getAuth();
+
+  const loginInWithEmailAndPassword = (email, password) => {
+    setIsLoading(true);
+    setError(null);
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        setUser(user);
+      })
+      .catch((error) => {
+        setError(error);
+        setIsLoading(false);
+      });
+  };
 
   const createAccountWithEmailAndPassword = (email, password) => {
     setIsLoading(true);
@@ -47,7 +63,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    const unsubscribe = onAuthStateChanged((user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
       } else {
@@ -64,6 +80,7 @@ const useFirebase = () => {
     error,
     createAccountWithEmailAndPassword,
     signInWithGoogle,
+    loginInWithEmailAndPassword,
   };
 };
 
