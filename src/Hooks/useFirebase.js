@@ -16,7 +16,7 @@ firebaseInitialization();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const auth = getAuth();
 

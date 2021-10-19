@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Alert, Button, Col, Container, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
 
 import useAuth from '../../Hooks/useAuth';
@@ -16,13 +16,14 @@ const Auth = () => {
     createAccountWithEmailAndPassword,
     signInWithGoogle,
     loginInWithEmailAndPassword,
+    error,
   } = useAuth();
 
   const [authToggle, setAuthToggle] = useState(true);
   const { register, handleSubmit } = useForm();
 
   const formSubmitHandler = (data) => {
-    if (!authToggle) {
+    if (authToggle) {
       loginInWithEmailAndPassword(data.email, data.password);
     } else {
       createAccountWithEmailAndPassword(
@@ -46,6 +47,11 @@ const Auth = () => {
 
   return (
     <Container className='my-5'>
+      {error && (
+        <div>
+          <Alert variant={'danger'}>{error?.message}</Alert>
+        </div>
+      )}
       <Row className='align-items-center justify-content-center'>
         <Col lg={6} className='shadow rounded'>
           <div className='text-center my-3'>
@@ -54,8 +60,8 @@ const Auth = () => {
           </div>
 
           <form className='p-3' onSubmit={handleSubmit(formSubmitHandler)}>
-            {authToggle && (
-              <div className='form-group'>
+            {!authToggle && (
+              <div className='form-group my-2'>
                 <label htmlFor='email'>Name</label>
                 <input
                   type='text'
@@ -65,7 +71,7 @@ const Auth = () => {
                 />
               </div>
             )}
-            <div className='form-group'>
+            <div className='form-group my-2'>
               <label htmlFor='email'>Email</label>
               <input
                 type='email'
@@ -75,7 +81,7 @@ const Auth = () => {
                 {...register('email')}
               />
             </div>
-            <div className='form-group'>
+            <div className='form-group my-2'>
               <label htmlFor='password'>Password</label>
               <input
                 type='password'
@@ -85,13 +91,13 @@ const Auth = () => {
                 {...register('password')}
               />
             </div>
-            <div className='form-group'>
+            <div className='form-group my-2'>
               <Row className='my-3 mx-1'>
                 <Button
                   className='py-3 fw-bold carousel-button btn-success'
                   type='submit'
                 >
-                  {!authToggle ? 'Login' : 'Signup'}
+                  {authToggle ? 'Login' : 'Signup'}
                 </Button>
               </Row>
             </div>
@@ -112,14 +118,14 @@ const Auth = () => {
 
           <div className='text-center my-3'>
             <p className='my-2 ms-4'>
-              {!authToggle
+              {authToggle
                 ? "Don't have an account?"
                 : 'Already have an account?'}
               <span
                 className='ms-2 text-success toggle-button'
                 onClick={() => setAuthToggle(!authToggle)}
               >
-                {!authToggle ? 'Sign Up' : 'Sign In'}
+                {authToggle ? 'Sign Up' : 'Sign In'}
               </span>
             </p>
           </div>
