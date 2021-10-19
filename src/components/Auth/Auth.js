@@ -66,7 +66,7 @@ const Auth = () => {
             <img src={Logo} alt='website logo' />
             <p className='my-2 ms-4'>Login into your pages account</p>
           </div>
-          
+
           <form className='p-3' onSubmit={handleSubmit(formSubmitHandler)}>
             {!authToggle && (
               <div className='form-group my-2'>
@@ -80,7 +80,10 @@ const Auth = () => {
                       value: true,
                       message: 'Name is required',
                     },
-                    minLength: 3,
+                    minLength: {
+                      value: 3,
+                      message: 'Name must be at least 3 characters',
+                    },
                   })}
                 />
               </div>
