@@ -18,11 +18,11 @@ const NavBar = () => {
             <Nav.Link as={NavLink} activeClassName='active' to='/' exact>
               Home
             </Nav.Link>
-            <Nav.Link as={NavLink} activeClassName='active' to='/services'>
-              Services
+            <Nav.Link as={NavLink} activeClassName='active' to='/products'>
+              Products
             </Nav.Link>
             <Nav.Link as={NavLink} activeClassName='active' to='/contact-us'>
-              Contact us
+              Contact Us
             </Nav.Link>
             <Nav.Link as={NavLink} activeClassName='active' to='/about'>
               About Us

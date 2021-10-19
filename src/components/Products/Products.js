@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Services = () => {
+const Products = () => {
   return <div>this is services page</div>;
 };
 
-export default Services;
+export default Products;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const SingleService = () => {
+const SingleProduct = () => {
   return <div>this is single service id</div>;
 };
 
-export default SingleService;
+export default SingleProduct;
