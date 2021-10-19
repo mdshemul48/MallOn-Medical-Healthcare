@@ -57,6 +57,7 @@ const Auth = () => {
 
   return (
     <Container className='my-5'>
+      {/* this component will show  error for invalid input */}
       <ErrorShower errors={errors} />
       {/* signup and login area */}
       <Row className='align-items-center justify-content-center'>
@@ -65,7 +66,7 @@ const Auth = () => {
             <img src={Logo} alt='website logo' />
             <p className='my-2 ms-4'>Login into your pages account</p>
           </div>
-
+          
           <form className='p-3' onSubmit={handleSubmit(formSubmitHandler)}>
             {!authToggle && (
               <div className='form-group my-2'>
