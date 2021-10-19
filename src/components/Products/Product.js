@@ -6,7 +6,7 @@ import './Product.css';
 const Product = ({ product: { name, description, img, id } }) => {
   return (
     <Col lg={4} md={6} sm={12}>
-      <div className='product shadow'>
+      <div className='product shadow-sm'>
         <div className='product-image text-center'>
           <img src={img} alt={name} width='200px' />
         </div>
