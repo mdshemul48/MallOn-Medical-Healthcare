@@ -48,7 +48,7 @@ const NavBar = () => {
             {user?.email ? (
               <>
                 <Navbar.Text className='ms-2'>
-                  Signed in as:{' '}
+                  Logged in as:{' '}
                   <span className='text-light'>{user.displayName}</span>
                 </Navbar.Text>
                 <Button
