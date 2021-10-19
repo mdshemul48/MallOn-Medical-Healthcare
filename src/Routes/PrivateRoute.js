@@ -6,9 +6,7 @@ import useAuth from '../Hooks/useAuth';
 
 const PrivateRoute = ({ children, ...rest }) => {
   const { user, isLoading } = useAuth();
-  console.log(isLoading);
   if (isLoading) {
-    console.log('isLoading');
     return (
       <div className='my-5 d-flex justify-content-center'>
         <Spinner animation='border' />
