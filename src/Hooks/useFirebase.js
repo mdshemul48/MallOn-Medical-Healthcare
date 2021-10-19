@@ -20,6 +20,8 @@ const useFirebase = () => {
   const [error, setError] = useState(null);
   const auth = getAuth();
 
+  console.log(error);
+
   const loginInWithEmailAndPassword = (email, password) => {
     setIsLoading(true);
     setError(null);
@@ -39,7 +41,6 @@ const useFirebase = () => {
     updateProfile(auth.currentUser, { displayName: name })
       .then(() => {})
       .catch((error) => {
-        console.log(error);
         setError(error);
       });
   };

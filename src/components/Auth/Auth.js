@@ -8,9 +8,9 @@ import Logo from '../../assets/logo1.png';
 
 import './Auth.css';
 const Auth = () => {
-  const { createAccountWithEmailAndPassword } = useAuth();
+  const { createAccountWithEmailAndPassword, signInWithGoogle } = useAuth();
   const [authToggle, setAuthToggle] = useState(false);
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const formSubmitHandler = (data) => {
     if (!authToggle) {
@@ -23,6 +23,9 @@ const Auth = () => {
     }
   };
 
+  const googleAuthHandler = () => {
+    signInWithGoogle();
+  };
   return (
     <Container className='my-5'>
       <Row className='align-items-center justify-content-center'>
@@ -79,7 +82,11 @@ const Auth = () => {
           <h3 className='text-center'>Or Login With</h3>
 
           <Row className='my-3 mx-1 text-center my-5 px-3'>
-            <Button variant='outline-dark' className='py-3 fw-bold'>
+            <Button
+              variant='outline-dark'
+              className='py-3 fw-bold'
+              onClick={googleAuthHandler}
+            >
               <FcGoogle className='me-2' />
               Login with Google
             </Button>
