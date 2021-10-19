@@ -45,9 +45,9 @@ function App() {
               <Products />
             </PrivateRoute>
 
-            <Route path='/contact-us'>
+            <PrivateRoute path='/contact-us'>
               <ContactUs />
-            </Route>
+            </PrivateRoute>
 
             <Route path='/about'>
               <About />
