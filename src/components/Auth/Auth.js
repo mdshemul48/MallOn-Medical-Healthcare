@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { FcGoogle } from 'react-icons/fc';
@@ -8,7 +9,9 @@ import Logo from '../../assets/logo1.png';
 
 import './Auth.css';
 const Auth = () => {
+  const history = useHistory();
   const {
+    user,
     createAccountWithEmailAndPassword,
     signInWithGoogle,
     loginInWithEmailAndPassword,
@@ -32,6 +35,13 @@ const Auth = () => {
   const googleAuthHandler = () => {
     signInWithGoogle();
   };
+
+  useEffect(() => {
+    if (user.displayName) {
+      history.push('/');
+    }
+  }, [user, history]);
+
   return (
     <Container className='my-5'>
       <Row className='align-items-center justify-content-center'>
