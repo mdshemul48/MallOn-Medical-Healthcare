@@ -10,6 +10,8 @@ import About from './components/About/About';
 import ContactUs from './components/ContactUs/ContactUs';
 import NotFound from './components/NotFound/NotFound';
 
+import Auth from './components/Auth/Auth';
+
 import NavBar from './components/Shared/NavBar/NavBar';
 import Footer from './components/Shared/Footer/Footer';
 // styles
@@ -27,6 +29,7 @@ function App() {
           <Route path='/products' component={Services} />
           <Route path='/contact-us' component={ContactUs} />
           <Route path='/about' component={About} />
+          <Route path='/auth' component={Auth} />
           <Route path='*' component={NotFound} />
         </Switch>
         <Footer />
