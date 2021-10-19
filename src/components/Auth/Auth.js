@@ -8,12 +8,18 @@ import Logo from '../../assets/logo1.png';
 
 import './Auth.css';
 const Auth = () => {
-  const { createAccountWithEmailAndPassword, signInWithGoogle } = useAuth();
+  const {
+    createAccountWithEmailAndPassword,
+    signInWithGoogle,
+    loginInWithEmailAndPassword,
+  } = useAuth();
+
   const [authToggle, setAuthToggle] = useState(false);
   const { register, handleSubmit } = useForm();
 
   const formSubmitHandler = (data) => {
     if (!authToggle) {
+      loginInWithEmailAndPassword(data.email, data.password);
     } else {
       createAccountWithEmailAndPassword(
         data.userName,
