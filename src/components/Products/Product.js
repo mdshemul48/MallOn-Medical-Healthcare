@@ -13,7 +13,10 @@ const Product = ({ product: { name, description, img, id } }) => {
         <div className='product-info'>
           <h5>{name}</h5>
           <p>{description.substring(0, 100)}...</p>
-          <Link to={`/product/${id}`} className='btn product-button text-light'>
+          <Link
+            to={`/products/${id}`}
+            className='btn product-button text-light'
+          >
             View Details
           </Link>
         </div>
