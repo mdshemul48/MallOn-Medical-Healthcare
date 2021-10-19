@@ -8,6 +8,7 @@ import Services from './components/Products/Products';
 import SingleService from './components/Products/SingleProduct';
 import About from './components/About/About';
 import ContactUs from './components/ContactUs/ContactUs';
+import NotFound from './components/NotFound/NotFound';
 
 import NavBar from './components/Shared/NavBar/NavBar';
 import Footer from './components/Shared/Footer/Footer';
@@ -26,6 +27,7 @@ function App() {
           <Route path='/products' component={Services} />
           <Route path='/contact-us' component={ContactUs} />
           <Route path='/about' component={About} />
+          <Route path='*' component={NotFound} />
         </Switch>
         <Footer />
       </Router>
